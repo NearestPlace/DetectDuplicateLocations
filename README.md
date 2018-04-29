@@ -1,27 +1,56 @@
-# Lookup Fields
+# Detect duplicate locations
 
 ## Usage
 
 ```
-import lookup from '@nearest/nearest-fieldlookup';
-
-const input = "Air Conditioned, Power Steering, SUPER DOOPER LOW KLM's @ 78,238, SET AND FORGET REGO Until June 2016!!, Power Mirrors, Tinted Windows, Central Locking, CD Mp3/AUX/USB AM/FM Stereo, Bluetooth Connectivity, Partial Leather Interior, Dual SRS Air Bags, In Cabin Roll Bar, Rear Tow Bar Accessory, EFS Lift Kit Upgrade, Side Steps,  Added Essential Upgrades: - Shovel - Farm Jack - Sand Ladder - CB Radio (Oricom) - Brand New Mud Tyres with Sunraysia Rims - Dual Front ARB LED Spot Lights (2 x 185W) - Front Bull Bar - Full Length Top Luggage Rack - Fire Extinguisher - Rear Cabin Cage - Genuine Snorkel - Fuel Cans A STEAL at This Price! What a GEM! This Is a Must See!!! Immaculate Condition Inside & Out, Nothing To Spend!!!  Enquire Today!! DO NOT MISS OUT! We offer: *5 Year Unlimited Klms Warranty Plus 24/7 Roadside Service Australia Wide (terms & conditions apply) *100% clear title includes -No Accident History (no written off) -No Encumbrance Owing (no money owing) *Trades-Ins & Test Drive Available *Extended Trading Hours: Open 7 Days A Week: -Mon-Fri 9am - 5:30 pm -Sat 9am- 5pm -Sun 10am - 4pm (after hour appointments available) *Contact Us For On +420 254 123 123 or (123) 456-789-012 + click to reveal *Website: http://www.stevesautoworld.com.au *Find Us On Facebook & Like Our Page, https://www.facebook.com/steves.autoworld";
-const country = 'AU';
-
-lookup.get(input, country)
-  .then((d) => {
-    console.log(d);
-    done();
-  });
+import duplication from '@nearest/nearest-duplicate-location';
 
 ```
 
-## Response
+### Input
 
 ```
-{ phoneNumbers: [ '+420254123123' ],
-  websites:
-   [ 'http://stevesautoworld.com.au',
-     'https://facebook.com/steves.autoworld' ],
-  emails: [ 'me@home.com' ] }
+const locations = [
+  {
+    geojson: {...geojsonObject},
+    name: 'Name of original location',
+  },
+  {
+    geojson: {...geojsonObject},
+    name: 'Name of location #1 to compare with original',
+  },
+  {
+    geojson: {...geojsonObject},
+    name: 'Name of location #2 to compare with original',
+  },
+  {
+    ...
+  }
+];
+```
+
+### Check
+```
+const result = duplication.check(locations);
+
+```
+
+## Result
+
+Result value describes how identical to locations are. 0 means completaly different,
+1 means completaly identical.
+
+```
+[
+  {               // Result between original and #1
+    name: 1,      // text similarity of names
+    distance: 0,  // sperical distance between original and #1
+    value: 1 },   // identical
+  { name: 0.9,
+    distance: 9.891107007312382,
+    value: 0.9 },
+  { name: 0.14285714285714285,
+    distance: 918.318771862209,
+    value: 0 } ]
+
 ```
