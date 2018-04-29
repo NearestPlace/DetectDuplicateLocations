@@ -1,0 +1,36 @@
+{
+  "name": "@nearest/nearest-duplicate-location",
+  "version": "0.0.1",
+  "description": "Checks if locations are identical to detect duplicates",
+  "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NearestPlace/DetectDuplicateLocations.git"
+  },
+  "scripts": {
+    "test": "mocha --require babel-core/register --require babel-polyfill",
+    "build": "babel src --presets babel-preset-env --out-dir dist",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "@turf/distance": "^6.0.1",
+    "lodash.find": "^4.6.0",
+    "lodash.get": "^4.4.2",
+    "similarity": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "babel-core": "^6.26.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "*",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^11.1.2",
+    "eslint-plugin-import": "^2.2.0",
+    "mocha": "*"
+  },
+  "author": "Stephan Georg <s.georg@nearest.place>",
+  "license": "ISC"
+}
