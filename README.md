@@ -55,6 +55,6 @@ Result value describes how identical to locations are. 0 means completaly differ
 
 ```
 
-### Ressources
+### Resources
 
-(Detecting Nearly Duplicated Records in Location Datasets)https://www.microsoft.com/en-us/research/publication/detecting-nearly-duplicated-records-in-location-datasets/
+[Detecting Nearly Duplicated Records in Location Datasets](https://www.microsoft.com/en-us/research/publication/detecting-nearly-duplicated-records-in-location-datasets/)
