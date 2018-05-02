@@ -55,7 +55,9 @@ Result value describes how identical to locations are. 0 means completaly differ
   {               // Result between original and #1
     name: 1,      // text similarity of names
     distance: 0,  // sperical distance between original and #1
-    value: 1 },   // identical
+    value: 1,     // identical
+    isDuplicate: true
+    },   
   { name: 0.9,
     distance: 9.891107007312382,
     value: 0.9 },
