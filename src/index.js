@@ -2,10 +2,14 @@ import turfDistance from '@turf/distance';
 import similarity from 'similarity';
 
 export default {
+  isDuplicate(values, options) {
+    const dupLimit = options.duplicationLimit || 0.2432;
+    return (values.value > dupLimit);
+  },
+
   calculate(distance, name, options = {}) {
     const { minDistance = 10 } = options;
-    if (distance > minDistance) return 0;
-    return name;
+    return (distance > minDistance) ? 0 : name;
   },
 
   /* checkName(names = [], options = {}) {
@@ -24,7 +28,8 @@ export default {
         const name = similarity(`${locations[0].name}`, `${location.name}`);
         const distance = turfDistance(locations[0].geojson, location.geojson) * 1000;
         const value = this.calculate(distance, name, options);
-        result.push({ name, distance, value });
+        const isDuplicate = this.isDuplicate({ name, distance, value }, options);
+        result.push({ name, distance, value, isDuplicate });
       }
     });
     return result;
