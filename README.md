@@ -28,10 +28,20 @@ const locations = [
   }
 ];
 ```
+### Options
+
+```
+const options = {
+  minDistance: 10, // minimal distance in meter to determine if identical (default: 10)
+  duplicationValue: 0.2432, // minimal similarity value of location name (0.2432)
+};
+
+```
+
 
 ### Check
 ```
-const result = duplication.check(locations);
+const result = duplication.check(locations, options);
 
 ```
 
