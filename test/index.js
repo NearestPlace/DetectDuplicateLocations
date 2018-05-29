@@ -1,7 +1,7 @@
 import chai from 'chai';
 import find from 'lodash.find';
 import get from 'lodash.get';
-import duplication from '../src/index';
+import duplication from '../dist/index';
 
 import data from './data';
 
