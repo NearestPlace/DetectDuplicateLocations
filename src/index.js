@@ -25,6 +25,8 @@ export default {
     const result = [];
     locations.forEach((location, i) => {
       if (i) {
+        locations[0].geojson.type = locations[0].geojson.type || 'Feature';
+        location.geojson.type = location.geojson.type || 'Feature';
         const name = similarity(`${locations[0].name}`, `${location.name}`);
         const distance = turfDistance(locations[0].geojson, location.geojson) * 1000;
         const value = this.calculate(distance, name, options);
