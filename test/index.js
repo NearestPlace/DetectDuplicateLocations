@@ -13,9 +13,13 @@ describe('Check if locations are identical', () => {
       geojson: location.geojson,
       name: get(find(location.elements, { key: 'locationName' }), 'value.0.value'),
     }));
-    const result = duplication.check(locations);
-    console.log(result);
-    done();
+    duplication.check(locations)
+      .then((result) => {
+        console.log({ result });
+        done();
+      });
+    // console.log(result);
+    // done();
   });
 
   /* it('Check identical', (done) => {
