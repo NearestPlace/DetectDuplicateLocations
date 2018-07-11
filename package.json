@@ -1,6 +1,6 @@
 {
   "name": "@nearest/nearest-duplicate-location",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Checks if locations are identical to detect duplicates",
   "main": "./dist/index.js",
   "repository": {
