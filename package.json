@@ -1,13 +1,13 @@
 {
   "name": "@nearest/nearest-duplicate-location",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Checks if locations are identical to detect duplicates",
   "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NearestPlace/DetectDuplicateLocations.git"
   },
-  "homepage": "https://github.com/NearestPlace/DetectDuplicateLocations#readme",
+  "homepage": "https://nearest.place",
   "scripts": {
     "test": "mocha --require babel-core/register",
     "build": "babel src --presets babel-preset-env --out-dir dist",
