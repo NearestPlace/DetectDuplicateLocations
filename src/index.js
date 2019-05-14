@@ -1,9 +1,9 @@
 import turfDistance from '@turf/distance';
-import similarity from 'similarity';
+import similarity from 'string-similarity';
 
 export default {
   isDuplicate(values, options) {
-    const dupLimit = options.duplicationLimit || 0.2432;
+    const dupLimit = options.duplicationLimit || 0.6;
     return (values.value > dupLimit);
   },
 
@@ -26,7 +26,7 @@ export default {
       if (i) {
         locations[0].geojson.type = locations[0].geojson.type || 'Feature';
         location.geojson.type = location.geojson.type || 'Feature';
-        const name = similarity(`${locations[0].name}`, `${location.name}`);
+        const name = similarity.compareTwoStrings(`${locations[0].name}`, `${location.name}`);
         const distance = turfDistance(locations[0].geojson, location.geojson) * 1000;
         const value = this.calculate(distance, name, options);
         const isDuplicate = this.isDuplicate({ name, distance, value }, options);

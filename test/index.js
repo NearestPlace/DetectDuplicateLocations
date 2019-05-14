@@ -1,7 +1,7 @@
 import chai from 'chai';
 import find from 'lodash.find';
 import get from 'lodash.get';
-import duplication from '../dist/index';
+import duplication from '../src/index';
 
 import data from './data';
 
@@ -13,13 +13,10 @@ describe('Check if locations are identical', () => {
       geojson: location.geojson,
       name: get(find(location.elements, { key: 'locationName' }), 'value.0.value'),
     }));
-    duplication.check(locations)
-      .then((result) => {
-        console.log({ result });
-        done();
-      });
-    // console.log(result);
-    // done();
+
+    const result = duplication.check(locations);
+    console.log('%O', result);
+    done();
   });
 
   /* it('Check identical', (done) => {

@@ -17,7 +17,7 @@
     "@turf/distance": "^6.0.1",
     "lodash.find": "^4.6.0",
     "lodash.get": "^4.4.2",
-    "similarity": "^1.1.1"
+    "string-similarity": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
