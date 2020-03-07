@@ -1,6 +1,6 @@
 {
   "name": "@nearest/nearest-duplicate-location",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Checks if locations are identical to detect duplicates",
   "main": "./dist/index.js",
   "repository": {
@@ -19,7 +19,7 @@
     "lodash.find": "^4.6.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
-    "string-similarity": "^3.0.0"
+    "string-similarity": "^4.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
