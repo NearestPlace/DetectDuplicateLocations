@@ -1,5 +1,7 @@
 import turfDistance from '@turf/distance';
 import similarity from 'string-similarity';
+import get from 'lodash.get';
+import set from 'lodash.set';
 
 export default {
   isDuplicate(values, options) {
@@ -23,11 +25,13 @@ export default {
     if (!Array.isArray(locations) || !locations.length) return null;
     const result = [];
     locations.forEach((location, i) => {
-      if (i) {
-        locations[0].geojson.type = locations[0].geojson.type || 'Feature';
-        location.geojson.type = location.geojson.type || 'Feature';
-        const name = similarity.compareTwoStrings(`${locations[0].name}`, `${location.name}`);
-        const distance = turfDistance(locations[0].geojson, location.geojson) * 1000;
+      if (i) { // Skip first element, b/c it is the baseLocation
+        const baseLocation = { ...locations[0] };
+        const testLocation = { ...location };
+        set(baseLocation, 'geojson.type', get(baseLocation, 'geojson.type') || 'Feature');
+        set(testLocation, 'geojson.type', get(testLocation, 'geojson.type') || 'Feature');
+        const name = similarity.compareTwoStrings(`${baseLocation.name}`, `${testLocation.name}`);
+        const distance = turfDistance(baseLocation.geojson, testLocation.geojson) * 1000;
         const value = this.calculate(distance, name, options);
         const isDuplicate = this.isDuplicate({ name, distance, value }, options);
         result.push({ name, distance, value, isDuplicate });
