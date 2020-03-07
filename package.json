@@ -14,7 +14,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.4",
+    "@babel/runtime": "^7.8.7",
     "@turf/distance": "^6.0.1",
     "lodash.find": "^4.6.0",
     "lodash.get": "^4.4.2",
@@ -22,15 +22,15 @@
     "string-similarity": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-stage-2": "^7.0.0",
-    "@babel/register": "^7.0.0",
+    "@babel/register": "^7.8.6",
     "babel-eslint": "^9.0.0",
     "chai": "*",
-    "eslint": "^4.19.1",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^11.1.2",
     "eslint-plugin-import": "^2.2.0",
     "mocha": "*"
